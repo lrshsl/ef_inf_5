@@ -1,13 +1,21 @@
-from lib import Grid
+from src.grid import Grid
+from src.qr_engine import get_qrcode_from
+import math
 
 def main():
-    grid = Grid(10, 3)
-    data_as_qr = (
-        [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
-        [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
-        [1, 1, 1, 1, 0, 0, 1, 1, 1, 1],
-    )
-    grid.eat(data_as_qr)
+    data = 'example'
+    data_as_qr = get_qrcode_from(data)
+    i = 1
+    for bit in data_as_qr:
+        # print(bit, end='')
+        if i >= 25:
+            # print()
+            i = 1
+        i += 1
+
+    # cols = rows = int(math.sqrt(len(data_as_qr)))
+    cols = rows = 23 + 6
+    grid = Grid(data_as_qr, cols, rows)
     grid.draw()
 
 if __name__ == '__main__':
