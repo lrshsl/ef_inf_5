@@ -13,8 +13,8 @@ def main():
             i = 1
         i += 1
 
-    # cols = rows = int(math.sqrt(len(data_as_qr)))
-    cols = rows = 23 + 6
+    cols = rows = int(math.sqrt(len(data_as_qr)))
+    # cols = rows = 34l+ 6
     grid = Grid(data_as_qr, cols, rows)
     grid.draw()
 

@@ -28,6 +28,8 @@ class Grid:
             self.data = [e for sublist in data for e in sublist]
         else:
             self.data = data
+            print(len(self.data))
+            print(rows * cols)
 
         # Calculate cell size
         self.cell_size = min(
